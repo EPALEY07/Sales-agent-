@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .clock {
+            margin: 10px;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock" id="utcClock"></div>
+    <div class="clock" id="estClock"></div>
+    <div class="clock" id="pstClock"></div>
+
+    <script>
+        function updateClocks() {
+            const utcDate = new Date();
+            document.getElementById('utcClock').innerHTML = 'UTC: ' + utcDate.toUTCString();
+
+            const estDate = new Date(utcDate.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+            document.getElementById('estClock').innerHTML = 'EST: ' + estDate.toLocaleString();
+
+            const pstDate = new Date(utcDate.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+            document.getElementById('pstClock').innerHTML = 'PST: ' + pstDate.toLocaleString();
+        }
+
+        setInterval(updateClocks, 1000);
+        updateClocks();
+    </script>
+</body>
+</html>
