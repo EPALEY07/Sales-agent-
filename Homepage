@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SellSphere</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+    }
+
+    header {
+      background: #0a2540;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: flex;
+      height: calc(100vh - 70px);
+    }
+
+    .panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .vendor {
+      background: #1f7a8c;
+    }
+
+    .agent {
+      background: #bf1363;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: white;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+      border-radius: 5px;
+    }
+
+    .page {
+      display: none;
+      padding: 40px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      margin: 20px 0;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .form-box {
+      max-width: 500px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SellSphere</h1>
+  <nav>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('plan')">Our Plan</a>
+    <a onclick="showPage('demo')">Demo</a>
+    <a onclick="showPage('testimonials')">Testimonials</a>
+    <a onclick="showPage('login')">Log In</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<div id="home" class="hero active">
+  <div class="panel vendor">
+    <h2>For Vendors</h2>
+    <p>Grow your business with top sales agents</p>
+    <button onclick="showPage('vendor')">Learn More</button>
+  </div>
+  <div class="panel agent">
+    <h2>For Agents</h2>
+    <p>Find high-quality products to sell</p>
+    <button onclick="showPage('agent')">Learn More</button>
+  </div>
+</div>
+
+<!-- VENDOR PAGE -->
+<div id="vendor" class="page">
+  <h2>Vendor Area</h2>
+  <textarea placeholder="Write about what you do..."></textarea>
+  <div class="form-box">
+    <h3>Create Account</h3>
+    <input type="text" placeholder="Company Name">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button>Create Vendor Account</button>
+  </div>
+</div>
+
+<!-- AGENT PAGE -->
+<div id="agent" class="page">
+  <h2>Agent Area</h2>
+  <textarea placeholder="Write about your experience..."></textarea>
+  <div class="form-box">
+    <h3>Create Account</h3>
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button>Create Agent Account</button>
+  </div>
+</div>
+
+<!-- OTHER PAGES -->
+<div id="plan" class="page">
+  <h2>Our Plan</h2>
+  <p>Explain your business model here.</p>
+</div>
+
+<div id="demo" class="page">
+  <h2>Demo</h2>
+  <p>Show how SellSphere works.</p>
+</div>
+
+<div id="testimonials" class="page">
+  <h2>Testimonials</h2>
+  <p>Customer feedback goes here.</p>
+</div>
+
+<div id="login" class="page">
+  <h2>Log In</h2>
+  <div class="form-box">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button>Log In</button>
+  </div>
+</div>
+
+<script>
+  function showPage(pageId) {
+    const pages = document.querySelectorAll('.page, .hero');
+    pages.forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
